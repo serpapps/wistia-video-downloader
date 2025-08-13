@@ -22,7 +22,7 @@ A powerful browser extension for downloading videos hosted on Wistia. Ideal for 
 - 🛒 [Shop](https://serp.ly/@serp/store)
 - 🎓 [Courses](https://serp.ly/@serp/courses)
 
-## Wistia Video Downloading
+## Downloading Wistia Videos
 
 Wistia employs several techniques to make video downloading difficult, protecting their clients' content. Instead of linking to a direct video file like an MP4, their player often references a `blob:` URL. This URL points to video data held in the browser's memory, not a server file, making a simple "Right-Click, Save As" impossible. To overcome this, the extension must monitor network traffic to capture the underlying video segments as they are being loaded into the browser. It then reconstructs these pieces into a complete, downloadable file, effectively bypassing the `blob:` URL and allowing you to save the video.
 
@@ -30,11 +30,11 @@ Wistia employs several techniques to make video downloading difficult, protectin
 
 <!-- ## Videos -->
 
-## Use cases
+<!-- ## Use cases -->
 
 ## Features
 
-## Limitations
+<!-- ## Limitations -->
 
 ## Permissions Justifications
 
