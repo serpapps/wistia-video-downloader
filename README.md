@@ -24,7 +24,47 @@ A powerful browser extension for downloading videos hosted on Wistia. Ideal for 
 
 ## Downloading Wistia Videos
 
-Wistia employs several techniques to make video downloading difficult, protecting their clients' content. Instead of linking to a direct video file like an MP4, their player often references a `blob:` URL. This URL points to video data held in the browser's memory, not a server file, making a simple "Right-Click, Save As" impossible. To overcome this, the extension must monitor network traffic to capture the underlying video segments as they are being loaded into the browser. It then reconstructs these pieces into a complete, downloadable file, effectively bypassing the `blob:` URL and allowing you to save the video.
+# Wistia Video Downloader - Supported Video Types
+
+| Video Type                | Platform             | Download Method         | Status     | Notes                                   |
+| ------------------------- | -------------------- | ----------------------- | ---------- | --------------------------------------- |
+| **Individual Videos**     | Wistia embeds        | Direct download         | ✅ Works   | Single video extraction                 |
+| **Playlists**             | Wistia playlists     | Detection + individual  | ✅ Partial | Lists videos, download individually     |
+| **Channels**              | Wistia channels      | Detection + individual  | ✅ Partial | Shows 20+ videos, download individually |
+| **Educational Platforms** | Learning sites       | Auto-detection          | ✅ Works   | Paywall content detection               |
+| **Corporate Websites**    | Business sites       | Iframe detection        | ✅ Works   | Channel/video embeds                    |
+| **Learning Platforms**    | Online courses       | Query parameter parsing | ✅ Works   | Complex URL handling                    |
+| **Event Platforms**       | Conference sites     | Parameter extraction    | ✅ Works   | Advanced query parsing                  |
+| **Official Embeds**       | Wistia documentation | Standard detection      | ✅ Works   | Documentation examples                  |
+
+## Supported Formats
+
+- **MP4** (Multiple quality options when available)
+- **HLS/M3U8** (Limited support)
+- **TS Segments** (Basic support)
+- **Quality options**: Original → HD → SD (when available)
+
+## Requirements
+
+- Chrome/Chromium browser only
+- Valid license key required
+- One video at a time (no batch downloads)
+- Individual downloads from playlists/channels
+
+## Example Working URLs
+
+- `https://fast.wistia.net/embed/playlists/aodt9etokc` (Playlist - 3 videos)
+- `https://fast.wistia.net/embed/channel/3802iirk0l` (Channel - 20+ videos)
+- Third-party websites with Wistia embeds (Educational platforms)
+- Corporate websites with embedded channels
+- Official Wistia documentation with examples
+
+## Important Limitations
+
+- **No bulk downloads** - Each video in playlists/channels must be downloaded separately
+- **No password-protected content** - Can detect but cannot download protected videos
+- **Detection-focused** - Excellent at finding videos, limited processing compared to other platforms
+
 
 <!-- ## Screenshots -->
 
