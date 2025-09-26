@@ -13,7 +13,6 @@ A powerful browser extension for downloading videos hosted on Wistia. Ideal for 
 - ❓ Common issues [here](https://github.com/orgs/serpapps/discussions/categories/faq)
 - 🐛 Report bugs [here](https://github.com/serpapps/wistia-video-downloader/issues)
 - 🆕 Request features [here](https://github.com/serpapps/wistia-video-downloader/issues)
-- 🆘 Request help [here](https://support.serp.co/)
 
 ## Resources
 
