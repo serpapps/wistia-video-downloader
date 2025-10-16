@@ -23,47 +23,158 @@ A powerful browser extension for downloading videos hosted on Wistia. Ideal for 
 
 ## Downloading Wistia Videos
 
-# Wistia Video Downloader - Supported Video Types
+# Wistia Video Downloader Features
 
-| Video Type                | Platform             | Download Method         | Status     | Notes                                   |
-| ------------------------- | -------------------- | ----------------------- | ---------- | --------------------------------------- |
-| **Individual Videos**     | Wistia embeds        | Direct download         | ✅ Works   | Single video extraction                 |
-| **Playlists**             | Wistia playlists     | Detection + individual  | ✅ Partial | Lists videos, download individually     |
-| **Channels**              | Wistia channels      | Detection + individual  | ✅ Partial | Shows 20+ videos, download individually |
-| **Educational Platforms** | Learning sites       | Auto-detection          | ✅ Works   | Paywall content detection               |
-| **Corporate Websites**    | Business sites       | Iframe detection        | ✅ Works   | Channel/video embeds                    |
-| **Learning Platforms**    | Online courses       | Query parameter parsing | ✅ Works   | Complex URL handling                    |
-| **Event Platforms**       | Conference sites     | Parameter extraction    | ✅ Works   | Advanced query parsing                  |
-| **Official Embeds**       | Wistia documentation | Standard detection      | ✅ Works   | Documentation examples                  |
+A Chrome extension for downloading individual videos from Wistia platforms. Version 1.0.0 designed for single video extraction with comprehensive detection capabilities.
 
-## Supported Formats
+## 🎯 Core Features
 
-- **MP4** (Multiple quality options when available)
-- **HLS/M3U8** (Limited support)
-- **TS Segments** (Basic support)
-- **Quality options**: Original → HD → SD (when available)
+### Single Video Downloads
+- **Individual Videos**: Download single Wistia videos from any website
+- **Playlist/Channel Detection**: Detect and list playlist/channel contents (individual download required)
+- **Embedded Content**: Support for Wistia videos embedded on third-party websites
+- **Multiple Detection Methods**: Comprehensive video ID detection across different embed types
 
-## Requirements
+### 🏢 Wistia Platform Integration
 
-- Chrome/Chromium browser only
-- Valid license key required
-- One video at a time (no batch downloads)
-- Individual downloads from playlists/channels
+#### Content Discovery Methods
+- **Direct URL Detection**: Recognize Wistia URLs (`wistia.net/embed/medias/`, `wistia.com/channel/`, `wistia.com/playlists/`)
+- **URL Parameter Parsing**: Extract video IDs from `wmediaid`, `wvideo`, `wvideoid` parameters
+- **CSS Class Detection**: Recognize `wistia_async_[video_id]` patterns
+- **Data Attribute Parsing**: Extract video IDs from `data-wistia-id` and `data-wistia-video-id` attributes
+- **JavaScript Parsing**: Detect `Wistia.embed()` calls and ID patterns in scripts
+- **Iframe Detection**: Find Wistia iframes with embedded video IDs
+- **DOM Element Scanning**: Search elements with `wistia_[ID]` patterns
+- **Global Variable Checking**: Access `window._wq` (Wistia queue) for video IDs
 
-## Example Working URLs
+### 🎥 Video Processing Capabilities
 
-- `https://fast.wistia.net/embed/playlists/aodt9etokc` (Playlist - 3 videos)
-- `https://fast.wistia.net/embed/channel/3802iirk0l` (Channel - 20+ videos)
-- Third-party websites with Wistia embeds (Educational platforms)
-- Corporate websites with embedded channels
-- Official Wistia documentation with examples
+#### Format and Quality Support
+- **Multiple Formats**: Support for MP4, M3U8/HLS, and TS segment formats
+- **Quality Selection**: Extract all available qualities with resolution, bitrate, and file size information
+- **Quality Sorting**: Automatically sort formats by resolution and bitrate
+- **Format Metadata**: Display detailed format information including container and codecs
 
-## Important Limitations
+#### Content Enhancement
+- **Thumbnail Processing**: Handle Wistia's `.bin` thumbnail format and convert to `.jpg`
+- **Metadata Extraction**: Preserve video titles, descriptions, duration, and resolution
+- **File Naming**: Smart filename generation with sanitized titles and video IDs
 
-- **No bulk downloads** - Each video in playlists/channels must be downloaded separately
-- **No password-protected content** - Can detect but cannot download protected videos
-- **Detection-focused** - Excellent at finding videos, limited processing compared to other platforms
+### 🔧 Technical Architecture
 
+#### API Integration
+- **Wistia JSON API**: Primary integration with `fast.wistia.net/embed/medias/[ID].json`
+- **Password Detection**: Identify and handle password-protected videos (detection only)
+- **Rate Limiting**: Built-in 1-second cooldown for API requests
+- **Error Handling**: Graceful handling of API failures and network errors
+
+#### Content Processing
+- **Video ID Validation**: Verify 10-character alphanumeric Wistia video IDs
+- **Content Type Recognition**: Distinguish between videos, playlists, and channels
+- **Metadata Processing**: Extract and organize video information from API responses
+
+### 🖥️ User Interface Features
+
+#### Extension Popup
+- **Automatic Detection**: Instant recognition of Wistia content on current page
+- **Video Preview**: Display thumbnail, title, duration, description, and resolution
+- **Quality Dropdown**: Populated dropdown with available formats sorted by quality
+- **Download Progress**: Real-time progress bar with percentage and speed display
+- **Cancel Functionality**: Ability to cancel active downloads
+- **Refresh Button**: Manual retry for video detection
+
+#### Playlist/Channel Interface
+- **Content Listing**: Scrollable list of playlist/channel contents
+- **Individual Thumbnails**: Display thumbnails for each video when available
+- **Per-Video Downloads**: Individual download buttons for each video in lists
+- **Video Selection**: Click to select and highlight videos
+
+### 🔒 Security & Authentication
+
+#### License Management
+- **Gumroad Integration**: Validate licenses against Gumroad API via secure worker
+- **GoHighLevel Support**: Alternative validation for GHL registrations
+- **Email + License Key**: Dual authentication requirement
+- **Session Persistence**: Maintain activation state across browser sessions
+- **Secure Storage**: Chrome storage for authentication state
+
+#### Privacy Protection
+- **Local Processing**: All video processing happens locally in browser
+- **Minimal Permissions**: Only necessary browser permissions requested
+- **Chrome Downloads API**: Native browser download integration
+- **No External Proxies**: Direct communication with Wistia only
+
+### 📁 Download Management
+
+#### File Handling
+- **Smart Naming**: Automatic generation of descriptive filenames with video ID
+- **Native Downloads**: Integration with Chrome's download system
+- **Progress Tracking**: Real-time download progress with speed monitoring
+- **Download Cancellation**: Ability to cancel in-progress downloads
+
+#### Quality Management
+- **Format Selection**: Choose from available video qualities before download
+- **Automatic Sorting**: Formats automatically sorted by quality (highest first)
+- **Detailed Information**: Show resolution, bitrate, file size for each format
+
+## 🌐 Platform Compatibility
+
+### Wistia Platform Support
+- **Wistia.com**: Full support for native Wistia platform
+- **Wistia.net**: Fast CDN endpoint integration
+- **Fast.Wistia.com/net**: High-performance content delivery support
+- **Embed-ssl.Wistia.com**: Secure embed endpoint compatibility
+- **Embedwistia-a.akamaihd.net**: Akamai CDN integration
+
+### Third-Party Integration
+- **Educational Platforms**: Support for learning management systems
+- **Corporate Websites**: Business website embedded content
+- **Documentation Sites**: Technical documentation and support videos
+- **Any Website**: Works on any site with Wistia embeds
+
+## 🚀 Technical Implementation
+
+### Browser Support
+- **Chrome/Chromium**: Primary development platform (Manifest V3)
+- **Content Scripts**: Runs on all websites to detect embeds
+- **Background Service Worker**: Handles downloads and API calls
+- **Chrome Storage**: Persistent settings and authentication
+
+### Detection Capabilities
+- **Comprehensive Scanning**: Multiple detection methods ensure high success rate
+- **Real-time Detection**: Automatic detection when navigating to pages with Wistia content
+- **Cross-Domain Support**: Works across all websites with Wistia embeds
+- **Error Recovery**: Retry mechanisms for failed content detection
+
+## 📋 Current Limitations
+
+### What's NOT Supported
+- **Bulk/Batch Downloads**: Cannot download entire playlists at once - each video requires individual download
+- **Password-Protected Videos**: Can detect but cannot download password-protected content
+- **HLS Stream Processing**: Limited support for complex segmented video formats
+- **Concurrent Downloads**: Only one download at a time
+- **Download History**: No persistent download tracking
+- **Custom Download Location**: Uses browser default download location
+
+### Playlist/Channel Handling
+- **Detection Only**: Can detect and list playlist/channel contents
+- **Individual Selection**: Each video in playlists/channels must be downloaded separately
+- **No Bulk Operations**: No "download all" functionality for collections
+
+## 🎯 Use Cases
+
+### Individual Video Downloading
+- **Business Training Videos**: Download corporate training content
+- **Educational Content**: Save instructional videos from learning platforms
+- **Marketing Materials**: Archive promotional videos and demos
+- **Documentation Videos**: Download support and tutorial content
+
+### Content Organization
+- **Quality Selection**: Choose optimal quality for specific use cases
+- **Metadata Preservation**: Maintain video information for organization
+- **Local Storage**: Create offline access to important video content
+
+This extension provides reliable single-video downloading capabilities with excellent detection across various Wistia embed methods and comprehensive quality options.
 
 <!-- ## Screenshots -->
 
@@ -71,14 +182,82 @@ A powerful browser extension for downloading videos hosted on Wistia. Ideal for 
 
 <!-- ## Use cases -->
 
-## Features
 
-<!-- ## Limitations -->
+<details>
+  <summary>Permissions Justifications</summary>
 
-## Permissions Justifications
+This document provides a detailed justification for each permission requested in the Wistia Video Downloader extension manifest.
 
-## Keywords
+## Used Permissions
 
+### 1. downloads
+**Justification**: Required for downloading Wistia videos to the user's computer.
+**Usage**:
+- `background-enhanced.js:350` - Chrome downloads API call to initiate video file downloads
+- `background-enhanced.js:381` - Search for downloads by ID to track progress and status
+- `background-enhanced.js:589` - Cancel active downloads when requested by user
+
+### 2. activeTab
+**Justification**: Required to interact with the currently active tab for video detection and URL extraction.
+**Usage**:
+- `popup.js:33` - Gets current active tab to check if it contains Wistia videos
+- `popup-enhanced.js:774` - Auto-detects Wistia content from current tab
+- `background-enhanced.js:501-503` - Gets active tab for video extraction operations
+- Used implicitly through `chrome.tabs.query({active: true, currentWindow: true})` calls
+
+### 3. storage
+**Justification**: Required to store user activation status and license information.
+**Usage**:
+- `auth.js:99, 117, 137` - Stores/retrieves license activation data and manages user authentication
+- `popup.js:73, 239` - Checks and sets activation status for extension functionality
+
+### 4. tabs
+**Justification**: Required for tab communication, management, and opening help documentation.
+**Usage**:
+- `popup.js:33, 45, 99, 260` - Tab queries, content script communication, opening new tabs
+- `popup-enhanced.js:774` - Current tab detection for video extraction
+- `background-enhanced.js:501, 511, 525` - Tab management and content script messaging for video detection
+
+### 5. scripting
+**Justification**: Required to dynamically inject content scripts for Wistia video detection on various websites.
+**Usage**:
+- `popup.js:92` - Injects content script when not already loaded on pages with Wistia videos
+- `background-enhanced.js:518` - Dynamic content script injection for video extraction across different websites
+
+## Host Permissions
+
+### Used Host Permissions
+- `https://*.wistia.com/*` - Primary Wistia domain and subdomains
+- `https://*.wistia.net/*` - Wistia network domains for video hosting
+- `https://fast.wistia.net/*` - Wistia's fast CDN for video delivery
+- `https://fast.wistia.com/*` - Alternative Wistia CDN domain
+- `https://embed-ssl.wistia.com/*` - Wistia's SSL embed service
+- `https://embedwistia-a.akamaihd.net/*` - Akamai CDN used by Wistia for content delivery
+- `https://*.cloudfront.net/*` - AWS CloudFront CDN used by Wistia for video distribution
+
+## Recommended to Delete (Unused Permissions)
+
+### None
+**Status**: All permissions are used
+**Reason**: All five declared permissions (downloads, activeTab, storage, tabs, scripting) are actively used throughout the codebase for legitimate Wistia video downloading functionality. No unused permissions were found.
+
+## Summary
+
+This is a well-designed video downloader extension that properly utilizes all declared permissions for its core functionality:
+- **downloads**: For downloading Wistia video content with progress tracking
+- **activeTab**: For accessing the current tab's Wistia video content
+- **storage**: For managing user authentication and license verification
+- **tabs**: For tab communication and management across different websites
+- **scripting**: For dynamic content script injection to detect Wistia videos across various websites
+
+All permissions follow the principle of least privilege and are necessary for the extension's comprehensive Wistia video downloading capabilities across multiple domains and CDN endpoints.
+  
+</details> 
+
+
+
+<details>
+  <summary> Keywords </summary>
 
 wistia video downloader
 how to download wistia videos
@@ -89,7 +268,7 @@ download wistia video from url
 wistia video downloader firefox
 wistia subtitles download
 
-
+<details>
 
 <details>
   <summary> Research </summary>
@@ -735,4 +914,11 @@ The methodologies and tools documented in this research provide a robust foundat
 **Research Version**: 1.0  
 **Next Review**: March 2025
 
+</details>
+
+<details>
+  <summary>Links</summary>
+
+- https://gist.github.com/devinschumacher/0af10f2645fb79a0718f3d1cce77385c
+  
 </details>
