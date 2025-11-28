@@ -4,8 +4,6 @@ Take your Wistia videos with you.
 
 A powerful browser extension for downloading videos hosted on Wistia. Ideal for students, professionals, and anyone who needs offline access to Wistia's business-oriented video content.
 
-![wistia video downloader](https://github.com/user-attachments/assets/b2edfcc3-5ada-4eab-9baf-de062739a485)
-
 
 ## 🔗 Links
 
@@ -922,3 +920,10 @@ The methodologies and tools documented in this research provide a robust foundat
 - https://gist.github.com/devinschumacher/0af10f2645fb79a0718f3d1cce77385c
   
 </details>
+
+
+## Related
+
+- https://github.com/serpapps/wistia-video-downloader
+- https://gist.github.com/devinschumacher/0af10f2645fb79a0718f3d1cce77385c
+- [How to Download Wistia Videos Using Network Requests](https://gist.github.com/devinschumacher/17bd267cac6dd2f85729c3559230fae1)
