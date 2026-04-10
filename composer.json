@@ -1,0 +1,24 @@
+{
+    "name": "serpapps/wistia-video-downloader",
+    "type": "library",
+    "description": "Download Wistia-hosted videos embedded around the web for offline viewing",
+    "keywords": [
+        "wistia-video-downloader",
+        "wistia-downloader",
+        "browser-extension",
+        "embed-video-downloader",
+        "business-video-downloader"
+    ],
+    "homepage": "https://github.com/serpapps/wistia-video-downloader",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "SERP Apps",
+            "homepage": "https://github.com/serpapps",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.4"
+    }
+}
