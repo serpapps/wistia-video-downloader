@@ -1,5 +1,11 @@
 # Wistia Downloader (Browser Extension)
 
+## Watch the video
+
+<a href="https://www.youtube.com/watch?v=ltXoXWWdJy8" target="_blank">
+<img src="https://raw.githubusercontent.com/devinschumacher/uploads/refs/heads/main/images/how-to-download-wistia-videos-for-free-chrome-extension-method.jpg" width="700px">
+</a>
+
 > Download supported Wistia-hosted videos as MP4 files from business pages, embeds, and training portals.
 
 Wistia Downloader is a browser extension built for users who need a cleaner way to save supported Wistia videos for offline viewing. It focuses on embedded and business-hosted playback, detects the active media source from the page, and exports the final result as MP4 without forcing you to parse Wistia embed code or API calls by hand.
