@@ -10,6 +10,12 @@ Wistia Downloader is a browser extension built for users who need a cleaner way 
 - Work with business video pages, learning portals, and marketing embeds
 - Keep the workflow entirely in the browser
 
+## Watch The Video
+
+<a href="https://www.youtube.com/watch?v=ltXoXWWdJy8" target="_blank">
+<img src="https://raw.githubusercontent.com/devinschumacher/uploads/refs/heads/main/images/how-to-download-wistia-videos-for-free-chrome-extension-method.jpg" width="700px">
+</a>
+
 ## Links
 
 - :rocket: Get it here: [Wistia Downloader](https://serp.ly/wistia-video-downloader)
@@ -20,7 +26,7 @@ Wistia Downloader is a browser extension built for users who need a cleaner way 
 
 ## Preview
 
-![Wistia Downloader workflow preview](assets/workflow-preview.webp)
+![Wistia Downloader workflow preview](https://raw.githubusercontent.com/serpapps/wistia-video-downloader/refs/heads/main/assets/workflow-preview.webp)
 
 ## Table of Contents
 
