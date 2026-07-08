@@ -1,4 +1,4 @@
-# Wistia Downloader (Browser Extension)
+# Wistia Video Downloader (Browser Extension)
 
 > Download supported Wistia-hosted videos as MP4 files from business pages, embeds, and training portals.
 
@@ -12,7 +12,7 @@ Wistia Downloader is a browser extension built for users who need a cleaner way 
 
 ## Links
 
-- :rocket: Get it here: [Wistia Downloader](https://serp.ly/wistia-video-downloader)
+- :rocket: Get it here: [Wistia Downloader](https://serp.ly/wistia-video-downloader?via=github)
 - :new: Latest release: [GitHub Releases](https://github.com/serpapps/wistia-video-downloader/releases/latest)
 - :question: Help center: [SERP Help](https://help.serp.co/en/)
 - :beetle: Report bugs: [GitHub Issues](https://github.com/serpapps/wistia-video-downloader/issues)
@@ -128,7 +128,7 @@ Password-protected Wistia videos cannot be downloaded. The extension will notify
 - No credit card required for the trial
 - Unlimited downloads are available with a paid license
 
-Start here: [https://serp.ly/wistia-video-downloader](https://serp.ly/wistia-video-downloader)
+Start here: [https://serp.ly/wistia-video-downloader?via=github](https://serp.ly/wistia-video-downloader?via=github)
 
 ## Installation Instructions
 
